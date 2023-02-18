@@ -1,0 +1,73 @@
+{
+    "header": {
+        "main_title": "React Pokedex",
+        "list": "PokeList",
+        "login": "Sign in",
+        "logout": "Sign out",
+        "user": "My profile"
+    },
+    "language": {
+        "en": "English",
+        "fr": "French"
+    },
+    "user": {
+        "connected": "User already connected",
+        "email": "Email",
+        "password": "Password",
+        "name": "Username",
+        "team": "Team pokemon",
+        "page": "Trainer card"
+    },
+    "button": {
+        "close": "close",
+        "submit": "submit"
+    },
+    "spinner": {
+        "loading": "Loading data, please wait a moment..."
+    },
+    "pokemonInfo": {
+        "title": "All you need to know !",
+        "idError": "Pokemon id cannot be less than 1.",
+        "img": "Default Visual",
+        "shiny": "Shiny Visual",
+        "statsHeader": "Default Stats",
+        "name": "His name",
+        "types": "His Types",
+        "habitat": "Where you can find it",
+        "genera": "What type of pokemon is it",
+        "descriptions": "All his descriptions throughout the generations"
+    },
+    "login": {
+        "main_title": "Sign in",
+        "action": "Sign in",
+        "title": "Welcome Back !",
+        "intro": "To stay in touch with us please login with your personal information.",
+        "move_to": "Sign Up"
+    },
+    "register": {
+        "main_title": "Create Account",
+        "action": "Sign up",
+        "title": "Hello, Friend !",
+        "intro": "Enter your personal information and start a journey with us.",
+        "move_to": "Sign in"
+    },
+    "details": "More information",
+    "error": {
+        "login": {
+            "fail": "Invalid Credentials"
+        },
+        "register": {
+            "password_check": "Password and confirm password do not match !",
+            "missing_name": "You must chose a username",
+            "missing_email": "You must enter an email"
+        }
+    },
+    "warning": {
+        "login": {
+            "email": "It seems your email is invalid, may be check it twice before submit."
+        },
+        "register": {
+            "password_check": "Passwords length are different."
+        }
+    }
+}

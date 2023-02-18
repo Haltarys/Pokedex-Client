@@ -1,0 +1,111 @@
+/*
+** HEADER
+*/
+#header {
+  display: flex;
+  flex-direction: column;
+  background-color: #b71a1b;
+  align-items: center;
+  margin-bottom: 1%;
+  #headerLinks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .navigation {
+        width: auto;
+        padding: 1rem;
+        a {
+          color: whitesmoke;
+          font-size: large;
+          margin: auto;
+          padding: 5%;
+          display: contents;
+        }
+      }
+    }
+    .first_section {
+      flex: 79;
+      justify-content: flex-start;
+    }
+    .second_section {
+      flex: 21;
+      justify-content: flex-end;
+      div {
+        margin: 1rem;
+      }
+      a {
+        color: whitesmoke;
+        font-size: large;
+        padding: 5%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #header {
+    display: flex;
+    flex-direction: column;
+    background-color: #b71a1b;
+    .links {
+      display: flex;
+      .navigation {
+        width: auto;
+        padding: 0.5rem;
+        a {
+          color: whitesmoke;
+          font-size: medium;
+          padding: 2%;
+        }
+      }
+    }
+    .first_section {
+      flex-direction: column;
+    }
+    .second_section {
+      flex-direction: column;
+      div {
+        margin: 0.5rem;
+      }
+      a {
+        color: whitesmoke;
+        font-size: small;
+        padding: 2%;
+      }
+    }
+  }
+}
+
+/*
+** DROPDOWN MENU
+*/
+#dropdown {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding: 5%;
+  margin: 0 !important;
+  text-align: right;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.9);
+}
+#dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  color: #ffffff;
+  background-color: #00a4bd;
+}

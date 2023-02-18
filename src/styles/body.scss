@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "PokeFont";
+    src: local("PokemonSolid"), url("../fonts/pokemon/PokemonSolid.ttf") format("truetype");
+}
+
+body {
+    color: whitesmoke;
+    font-family: "PokeFont", serif;
+    letter-spacing: .2rem;
+    h1 {
+        font-size: xx-large;
+    }
+    a {
+        text-decoration: none;
+    }
+}
