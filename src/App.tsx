@@ -1,17 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import PageNotFound from './components/404.component';
+import Header from './layouts/header.component';
+import { IRoute } from './models/routes.model';
+import Container from './routes/container.component';
+import menuItems from './routes/routes.config';
+
+import './styles/body.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Fucking deploy to Netlify.</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          {menuItems.map((item: IRoute) => (
+            <Route
+              element={<Container content={item.content} />}
+              key={item.title}
+              path={item.path}
+            />
+          ))}
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <ToastContainer />
     </div>
   );
 }

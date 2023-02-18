@@ -1,0 +1,76 @@
+{
+    "header": {
+        "main_title": "React Pokedex",
+        "list": "Liste Pokémon",
+        "login": "Se connecter",
+        "logout": "Se déconnecter",
+        "user": "Mon profil"
+    },
+    "language": {
+        "en": "Anglais",
+        "fr": "Français"
+    },
+    "user": {
+        "connected": "Utilisateur déjà connecté",
+        "email": "Email",
+        "password": "Mot de passe",
+        "name": "Nom d'utilisateur",
+        "team": "Equipe pokemon",
+        "page": "Carte dresseur"
+    },
+    "button": {
+        "close": "Fermer",
+        "submit": "Envoyer"
+    },
+    "spinner": {
+        "loading": "Chargement des pokémons, veuillez patienter..."
+    },
+    "pokemonInfo": {
+        "title": "Tout ce qu'il y a à savoir !",
+        "idError": "L'id du pokemon ne peut pas être inferieur à 1.",
+        "img": "Visuel de base",
+        "shiny": "Visuel en shiny",
+        "statsHeader": "Ses statistiques de base",
+        "name": "Son nom",
+        "types": "Ses types",
+        "habitat": "Où le trouver",
+        "genera": "Quel type de pokemon est-il",
+        "descriptions": "Toutes ses descriptions au cours des générations"
+    },
+    "login": {
+        "main_title": "Connection",
+        "action": "Se connecter",
+        "title": "Bon retour !",
+        "intro": "Pour rester connecter avec nous, entre tes informations de dresseur.",
+        "move_to": "S'inscrire"
+    },
+    "register": {
+        "main_title": "Créer un compte",
+        "action": "Créer un compte",
+        "title": "Salut l'ami !",
+        "intro": "Entre tes informations pour commencer ton aventure à nos côtés.",
+        "move_to": "Se connecter"
+    },
+    "details": "Plus d'informations",
+    "error": {
+        "login": {
+            "fail": "Les informations données ne sont pas valides"
+        },
+        "register": {
+            "password_check": "Le mot de passe et sa confirmation diffèrent !",
+            "missing_name": "Tu as oublié de choisir un pseudo !",
+            "missing_email": "Tu as oublié de mettre ton email !"
+        }
+    },
+    "warning": {
+        "login": {
+            "email": "Il semble que l'email soit invalide. Vérifiez la syntaxe avant de passer à la suite."
+        },
+        "translation": {
+            "noData": "Les données des pokémon n'ont pas toutes une traduction. Veuillez nous pardonner pour la gêne occasionée."
+        },
+        "register": {
+            "password_check": "Le mot de passe et sa confirmation n'ont pas la même taille."
+        }
+    }
+}
