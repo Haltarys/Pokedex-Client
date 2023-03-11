@@ -4,7 +4,8 @@
         "list": "Liste Pokémon",
         "login": "Se connecter",
         "logout": "Se déconnecter",
-        "user": "Mon profil"
+        "user": "Mon profil",
+        "chat": "Messagerie"
     },
     "language": {
         "en": "Anglais",
@@ -52,14 +53,30 @@
         "move_to": "Se connecter"
     },
     "details": "Plus d'informations",
+    "room": {
+        "join": "Choisissez un groupe pour lire les messages associés",
+        "title": "Groupes disponibles",
+        "send": "Envoyer",
+        "placeholder": "Entrez votre message..."
+    },
     "error": {
         "login": {
-            "fail": "Les informations données ne sont pas valides"
+            "fail": "Les informations données ne sont pas valides",
+            "first": "Vous devez d'abord vous connecter"
         },
         "register": {
             "password_check": "Le mot de passe et sa confirmation diffèrent !",
             "missing_name": "Tu as oublié de choisir un pseudo !",
             "missing_email": "Tu as oublié de mettre ton email !"
+        },
+        "ws": {
+            "login_error": "Token expiré, essayez de rafraichir la page"
+        },
+        "room": {
+            "fail": "Erreur de récupération des groupes disponibles. Tentez de rafraichir la page",
+            "join": "Erreur lors du chargement de vos groupes, selectionnez un groupe pour le rejoindre",
+            "joining": "Impossible de rejoindre pour le moment, veuillez retenter plus tard",
+            "username": "Erreur lors de la récupération du nom de l'auteur du dernier message"
         }
     },
     "warning": {

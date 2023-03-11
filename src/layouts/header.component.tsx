@@ -28,6 +28,7 @@ function Header() {
     if (!item.title || item.title.match(/login|user/)) return null;
     return (
       <Link
+        className="link"
         key={item.title}
         to={
             item.containParam && item.params

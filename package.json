@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
+    "@socket.io/component-emitter": "^4.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -25,6 +26,7 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.2",
     "sass": "^1.57.1",
+    "socket.io-client": "^4.6.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

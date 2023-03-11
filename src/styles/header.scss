@@ -16,14 +16,16 @@
       justify-content: center;
       align-items: center;
       .navigation {
-        width: auto;
-        padding: 1rem;
-        a {
+        padding-right: 1rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 40%;
+        .link {
           color: whitesmoke;
           font-size: large;
-          margin: auto;
+          margin: .2em;
           padding: 5%;
-          display: contents;
         }
       }
     }
