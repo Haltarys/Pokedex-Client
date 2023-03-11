@@ -125,11 +125,13 @@ function Login() {
       const res: IApiResponse<IUser> = await dispatch(registerUser(body));
       if (res.status === 'error') {
         setError(res.data as string);
+      } else {
+        handleSubmit(ev);
       }
     })().catch((e: Error) => setError(e.message));
   };
 
-  if (user.email) {
+  if (user.jwt) {
     navigate('/user');
   }
   return (

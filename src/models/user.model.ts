@@ -3,6 +3,7 @@ export interface IUser {
   name: string;
   email: string;
   pokemon_team: number[];
+  jwt: string;
 }
 
 export interface IRegisterUser {

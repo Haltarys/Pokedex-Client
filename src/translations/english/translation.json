@@ -4,7 +4,8 @@
         "list": "PokeList",
         "login": "Sign in",
         "logout": "Sign out",
-        "user": "My profile"
+        "user": "My profile",
+        "chat": "Chat"
     },
     "language": {
         "en": "English",
@@ -52,14 +53,30 @@
         "move_to": "Sign in"
     },
     "details": "More information",
+    "room": {
+        "join": "Select a room to read linked messages",
+        "title": "Available rooms",
+        "send": "Send",
+        "placeholder": "Write your message..."
+    },
     "error": {
         "login": {
-            "fail": "Invalid Credentials"
+            "fail": "Invalid Credentials",
+            "first": "You must sign in first"
         },
         "register": {
             "password_check": "Password and confirm password do not match !",
             "missing_name": "You must chose a username",
             "missing_email": "You must enter an email"
+        },
+        "ws": {
+            "login_error": "Token expired, try to refresh your session"
+        },
+        "room": {
+            "fail": "Failed to load available rooms, try to refresh your page",
+            "join": "Failed to load already joined rooms, click on a room to join it",
+            "joining": "We cannot retreive this room for the moment, try again later",
+            "username": "Fail to retreive author of the last message"
         }
     },
     "warning": {

@@ -6,6 +6,7 @@ const initialUserState: IUser = {
   name: '',
   email: '',
   pokemon_team: [],
+  jwt: '',
 };
 
 const userSlice = createSlice({

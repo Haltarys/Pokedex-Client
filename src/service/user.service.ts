@@ -21,7 +21,7 @@ const getProfile = async (token: string): Promise<IApiResponse<IUser>> => Api()
   .then(
     (response: AxiosResponse<IUser>) => ({
       status: 'success',
-      data: response.data,
+      data: { ...response.data, jwt: token },
     } as IApiResponse<IUser>),
   )
   .catch(handleError)
@@ -35,16 +35,28 @@ const fetchUser = async (params: IUserLogin): Promise<IApiResponse<IUser>> => {
   return getProfile(token);
 };
 
-const registerUser = async (body: IRegisterUser): Promise<IApiResponse<IUser>> => Api().post('user', { ...body }, { headers: { 'Content-Type': 'application/json' } })
+const registerUser = async (body: IRegisterUser): Promise<IApiResponse<IUser>> => Api().post(`${process.env.REACT_APP_API_USER as string}`, { ...body }, { headers: { 'Content-Type': 'application/json' } })
   .then((response: AxiosResponse<IUser>) => ({
     status: 'success',
     data: response.data,
   }) as IApiResponse<IUser>).catch(handleError)
   .catch((err: Error) => ({ status: 'error', data: err.message }));
 
+const getUsernameById = async (id: string): Promise<IApiResponse<string>> => Api()
+  .get(`${process.env.REACT_APP_API_USER as string}/${id}`)
+  .then(
+    (response: AxiosResponse<Partial<IUser>>) => ({
+      status: 'success',
+      data: response.data.id,
+    } as IApiResponse<string>),
+  )
+  .catch(handleError)
+  .catch((e: Error) => ({ status: 'error', data: e.message }));
+
 const UserService = {
   fetchUser,
   registerUser,
+  getUsernameById,
 };
 
 export default UserService;
