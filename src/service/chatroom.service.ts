@@ -19,7 +19,7 @@ let socket: Socket<DefaultEventsMap, DefaultEventsMap>;
 const users: IUSerPair[] = [];
 
 const initConnection = (jwt: string) => {
-  socket = io(process.env.REACT_APP_WS_URL as string, {
+  socket = io(process.env.REACT_APP_API as string, {
     auth: { jwt },
   });
 };
