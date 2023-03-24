@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { useAppSelector } from '../hooks/redux.hooks';
 import { IRoom, IMessage } from '../models/chat.model';
-import ChatService from '../service/chatroom.service';
+import ChatService from '../services/chatroom.service';
 
 // style
 import '../styles/chat.scss';
@@ -19,7 +19,11 @@ function Chat() {
   const [chatRooms, setChatRooms] = useState<IRoom[]>([]);
   const [joinedRooms, setJoinedRooms] = useState<IRoom[]>([]);
   // current room
-  const [chatRoomId, setChatRoomId] = useState<IRoom>({ name: '', id: '', members: [] });
+  const [chatRoomId, setChatRoomId] = useState<IRoom>({
+    name: '',
+    id: '',
+    members: [],
+  });
   // messages
   const [messages, setMessages] = useState<IMessage[]>([]);
   // message to send
@@ -71,18 +75,16 @@ function Chat() {
       const rooms = await ChatService.fetchRooms();
       if (rooms.status !== 'success') throw new Error(rooms.data as string);
       setChatRooms(rooms.data as IRoom[]);
-    })().catch((() => setError('error.room.fail')));
+    })().catch(() => setError('error.room.fail'));
     (async () => {
       const rooms = await ChatService.fetchJoinedRooms(user.jwt);
       if (rooms.status !== 'success') return;
-      setJoinedRooms(rooms.data as IRoom[] || []);
-    })().catch((() => setError('error.room.join')));
+      setJoinedRooms((rooms.data as IRoom[]) || []);
+    })().catch(() => setError('error.room.join'));
   }, [setChatRooms, setJoinedRooms, user]);
 
   if (!user || !user.jwt) {
-    return (
-      <div>{t('error.login.first')}</div>
-    );
+    return <div>{t('error.login.first')}</div>;
   }
 
   const sendMessage = () => {
@@ -126,10 +128,7 @@ function Chat() {
 
   const renderRoom = (r: IRoom) => (
     <li className="clearfix">
-      <button
-        type="button"
-        onClick={() => changeRoom(r.id, r.name)}
-      >
+      <button type="button" onClick={() => changeRoom(r.id, r.name)}>
         <div className="about">
           <div className="name">{r.name}</div>
         </div>
@@ -142,9 +141,7 @@ function Chat() {
       <div className="chat-container clearfix">
         <div className="people-list" id="people-list">
           {t('room.title')}
-          <ul className="list">
-            {chatRooms.map((r: IRoom) => renderRoom(r))}
-          </ul>
+          <ul className="list">{chatRooms.map((r: IRoom) => renderRoom(r))}</ul>
         </div>
 
         <div className="chat">
@@ -152,7 +149,9 @@ function Chat() {
             <div className="chat-about">
               <div className="chat-with">{`Chat: ${chatRoomId.name}`}</div>
               <div className="chat-num-messages">
-                {`Status: ${isConnected ? 'Online' : 'Offline'} - messages: ${messages.filter((e) => e.chatroom === chatRoomId.id).length}`}
+                {`Status: ${isConnected ? 'Online' : 'Offline'} - messages: ${
+                  messages.filter((e) => e.chatroom === chatRoomId.id).length
+                }`}
               </div>
             </div>
             <i className="fa fa-star" />

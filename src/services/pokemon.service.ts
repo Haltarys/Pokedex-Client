@@ -6,7 +6,7 @@ import { IPokemon, IPokemonList, IPokemonBasic } from '../models/pokemon.model';
 const fetchPokemonList = async (
   limit: number,
 ): Promise<IApiResponse<IPokemonList>> => Api()
-  .get(`${process.env.REACT_APP_API_POKEMON as string}/list/${limit}`)
+  .get(`/pokemons/list/${limit}`)
   .then(
     (response: AxiosResponse<IPokemonList>) => ({
       status: 'success',
@@ -19,7 +19,7 @@ const fetchPokemonList = async (
 const fetchPokemonBasic = async (
   id: number,
 ): Promise<IApiResponse<IPokemonBasic>> => Api()
-  .get(`${process.env.REACT_APP_API_POKEMON as string}/partial/${id}`)
+  .get(`/pokemons/partial/${id}`)
   .then(
     (response: AxiosResponse<IPokemonBasic>) => ({
       status: 'success',
@@ -29,10 +29,8 @@ const fetchPokemonBasic = async (
   .catch(handleError)
   .catch((error: Error) => ({ status: 'error', data: error.message }));
 
-const fetchPokemon = async (
-  id: number,
-): Promise<IApiResponse<IPokemon>> => Api()
-  .get(`${process.env.REACT_APP_API_POKEMON as string}/full/${id}`)
+const fetchPokemon = async (id: number): Promise<IApiResponse<IPokemon>> => Api()
+  .get(`/pokemons/full/${id}`)
   .then(
     (response: AxiosResponse<IPokemon>) => ({
       status: 'success',

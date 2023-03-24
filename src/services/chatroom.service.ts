@@ -12,7 +12,7 @@ interface IUSerPair {
 }
 
 type CallBack = {
-  (mess: IMessage | boolean, err: Error | null): void
+  (mess: IMessage | boolean, err: Error | null): void;
 };
 
 let socket: Socket<DefaultEventsMap, DefaultEventsMap>;
@@ -37,7 +37,14 @@ const subscribeToMessages = (cb: CallBack): void => {
     if (!users.find((e) => e.id === m.author)) {
       getUsernameForId(m.author);
     }
-    cb({ ...m, author: users.find((e) => e.id === m.author)?.name || '', date: new Date().toISOString() }, null);
+    cb(
+      {
+        ...m,
+        author: users.find((e) => e.id === m.author)?.name || '',
+        date: new Date().toISOString(),
+      },
+      null,
+    );
   });
 };
 
@@ -76,7 +83,7 @@ const disconnect = () => {
 };
 
 const fetchRooms = async (): Promise<IApiResponse<IRoom[]>> => Api()
-  .get(`${process.env.REACT_APP_API_CHATROOM as string}`)
+  .get('/chatrooms')
   .then(
     (response: AxiosResponse<IRoom[]>) => ({
       status: 'success',
@@ -87,7 +94,7 @@ const fetchRooms = async (): Promise<IApiResponse<IRoom[]>> => Api()
   .catch((error: Error) => ({ status: 'error', data: error.message }));
 
 const fetchJoinedRooms = async (jwt: string): Promise<IApiResponse<IRoom[]>> => Api()
-  .get(`${process.env.REACT_APP_API_CHATROOM as string}/joined`, { headers: { Authorization: `Bearer ${jwt}` } })
+  .get('/chatrooms/joined', { headers: { Authorization: `Bearer ${jwt}` } })
   .then(
     (response: AxiosResponse<IRoom[]>) => ({
       status: 'success',
@@ -98,7 +105,7 @@ const fetchJoinedRooms = async (jwt: string): Promise<IApiResponse<IRoom[]>> => 
   .catch((error: Error) => ({ status: 'error', data: error.message }));
 
 const joinRoom = async (roomId: string): Promise<IApiResponse<boolean>> => Api()
-  .patch(`${process.env.REACT_APP_API_CHATROOM as string}/${roomId}/join`)
+  .patch(`/chatrooms/${roomId}/join`)
   .then(
     () => ({
       status: 'success',

@@ -6,7 +6,11 @@ import {
 } from '../models/user.model';
 
 const getToken = async (params: IUserLogin): Promise<IApiResponse<IToken>> => Api()
-  .post('auth/login', { ...params }, { headers: { 'Content-Type': 'application/json' } })
+  .post(
+    '/auth/login',
+    { ...params },
+    { headers: { 'Content-Type': 'application/json' } },
+  )
   .then(
     (response: AxiosResponse<IToken>) => ({
       status: 'success',
@@ -17,7 +21,7 @@ const getToken = async (params: IUserLogin): Promise<IApiResponse<IToken>> => Ap
   .catch((error: Error) => ({ status: 'error', data: error.message }));
 
 const getProfile = async (token: string): Promise<IApiResponse<IUser>> => Api()
-  .get('auth/profile', { headers: { Authorization: `Bearer ${token}` } })
+  .get('/users/profile', { headers: { Authorization: `Bearer ${token}` } })
   .then(
     (response: AxiosResponse<IUser>) => ({
       status: 'success',
@@ -35,15 +39,25 @@ const fetchUser = async (params: IUserLogin): Promise<IApiResponse<IUser>> => {
   return getProfile(token);
 };
 
-const registerUser = async (body: IRegisterUser): Promise<IApiResponse<IUser>> => Api().post(`${process.env.REACT_APP_API_USER as string}`, { ...body }, { headers: { 'Content-Type': 'application/json' } })
-  .then((response: AxiosResponse<IUser>) => ({
-    status: 'success',
-    data: response.data,
-  }) as IApiResponse<IUser>).catch(handleError)
+const registerUser = async (
+  body: IRegisterUser,
+): Promise<IApiResponse<IUser>> => Api()
+  .post(
+    '/users',
+    { ...body },
+    { headers: { 'Content-Type': 'application/json' } },
+  )
+  .then(
+    (response: AxiosResponse<IUser>) => ({
+      status: 'success',
+      data: response.data,
+    } as IApiResponse<IUser>),
+  )
+  .catch(handleError)
   .catch((err: Error) => ({ status: 'error', data: err.message }));
 
 const getUsernameById = async (id: string): Promise<IApiResponse<string>> => Api()
-  .get(`${process.env.REACT_APP_API_USER as string}/${id}`)
+  .get(`/users/${id}`)
   .then(
     (response: AxiosResponse<Partial<IUser>>) => ({
       status: 'success',

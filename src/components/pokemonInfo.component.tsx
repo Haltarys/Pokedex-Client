@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import i18next from '../i18n';
-import PokemonService from '../service/pokemon.service';
+import PokemonService from '../services/pokemon.service';
 import { IPokemon, IPokemonTranslation } from '../models/pokemon.model';
 
 import '../styles/pokemonInfo.scss';
@@ -64,9 +64,9 @@ function PokemonInfo() {
         <article className="main">
           <div className="names">
             <h3>{t('pokemonInfo.name')}</h3>
-            {pokemon?.names.map((name: IPokemonTranslation) => (
-              name.lang === i18next.language ? name.value : null
-            ))}
+            {pokemon?.names.map(
+              (name: IPokemonTranslation) => (name.lang === i18next.language ? name.value : null),
+            )}
           </div>
           <div className="separator" />
           <div className="types">
@@ -81,9 +81,11 @@ function PokemonInfo() {
           <div className="separator" />
           <div className="genera">
             <h3>{t('pokemonInfo.genera')}</h3>
-            {pokemon?.genera.map((genera: IPokemonTranslation) => (
-              genera.lang === i18next.language ? genera.value : null
-            ))}
+            {pokemon?.genera.map(
+              (genera: IPokemonTranslation) => (
+                genera.lang === i18next.language ? genera.value : null
+              ),
+            )}
           </div>
           <div className="separator" />
           <div className="descriptions">
