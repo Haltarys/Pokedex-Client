@@ -1,4 +1,4 @@
-# Pokedex-Front
+# Pokedex-Client
 
 A simple (and incomplete) Pokédex-like application built with React. Currently a mirror from a Gitlab repository.
 
