@@ -2,6 +2,8 @@
 
 A simple (and incomplete) Pokédex-like application built with React. Currently a mirror from a Gitlab repository.
 
+Credit to [@TIC](https://github.com/calvetalex/): he built it all!
+
 ## Deployement
 
 This repo is automatically deployed on <https://fs3-pokedex.netlify.app/> thanks to a link with netlify. The linked is based on "main" branch, every modification on main will be deploy in production.
